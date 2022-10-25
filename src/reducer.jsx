@@ -1,35 +1,56 @@
 import {
-    ADD_ONE_TO_COUNTER,
-    MINUS_ONE_FROM_COUNTER,
-    CUSTOMER_ADD_COUNTER
+    UPDATE_CART_COUNT,
+    ADD_TO_CART_LIST
 } from './action'
 
-const initialState= {
-    counter : 0,
-    name : 'AccioJob',
-    age : 30
+const initialState = {
+    productList: [
+        {
+          id: 1,
+          name: 'Apple Ipad Pro',
+          description: '27.69 cm (10.9-inch) Liquid Retina display1 with True Tone, P3 wide colour and an anti-reflective coating',
+          price: 51999,
+          image: 'https://m.media-amazon.com/images/I/71ey-9D8yDL._AC_UY436_FMwebp_QL65_.jpg'
+        },
+        {
+          id: 2,
+          name: 'Apple iPhone 12 (64GB) - Green',
+          description: '6.1-inch (15.5 cm diagonal) Super Retina XDR display',
+          price: 69900,
+          image: 'https://m.media-amazon.com/images/I/71cQWYVtcBL._AC_UY436_FMwebp_QL65_.jpg'
+        },
+        {
+          id: 3,
+          name: 'Apple Watch SE',
+          description: 'GPS + Cellular, 40mm',
+          price: 29900,
+          image: 'https://m.media-amazon.com/images/I/71ZyBh4LQuL._AC_UY436_FMwebp_QL65_.jpg'
+        },
+        {
+          id: 4,
+          name: 'Apple AirPods Pro',
+          description: 'Active Noise Cancellation for immersive sound',
+          price: 23900,
+          image: 'https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_UY436_FMwebp_QL65_.jpg'
+        }
+      ],
+    cartCount: 0,
+    cartList: []
 }
 
-function reducer(state = initialState , action){
+function reducer(state = initialState, action){
     switch(action.type){
-        case ADD_ONE_TO_COUNTER :
+        case UPDATE_CART_COUNT:
             return {
                 ...state,
-                counter : state.counter + 1
+                cartCount: state.cartCount + 1
             }
-
-        case MINUS_ONE_FROM_COUNTER :
+        case ADD_TO_CART_LIST:
             return {
                 ...state,
-                counter : state.counter - 1
+                cartList: [...state.cartList, action.payload]
             }
-        
-        case CUSTOMER_ADD_COUNTER:
-            return{
-                ...state,
-                counter : state.counter + action.payload
-            }
-        default : 
+        default:
             return state
     }
 }

@@ -1,32 +1,28 @@
-import NavigationBar from './Component/Header/NavigationBar'
-import Carousel from './Component/Header/Carousel'
-import {useSelector , useDispatch} from 'react-redux'
+import React from 'react'
+import NavigationBar from './component/Header/NavigationBar'
+import NotFound from './component/pages/Error/NotFound'
+import Cart from './Component/Pages/Cart/Cart'
+import Home from './component/pages/Home/Home'
+import ProductDetails from './component/Pages/Product/ProductDetails'
+
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
-  const counter = useSelector(state => state.counter)
-  const name = useSelector(state => state.name);  //we can fetch data
 
-  const dispatch = useDispatch()
-
+  
   return (
-    <div className="App">
-      App
-      <NavigationBar/>
-      <Carousel/>
+    <div>
+      <NavigationBar />
 
-      count : {counter} {name}
-      <button onClick={() => dispatch({type : 'ADD_ONE_TO_COUNTER'})}>Increment</button>
-      <button onClick={() => dispatch({type : 'MINUS_ONE_FROM_COUNTER'})}>Decrement</button>
-      <button onClick={() => dispatch({type : 'CUSTOMER_ADD_COUNTER', payload : 10})}>testing</button>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/product/:id' element={<ProductDetails />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
     </div>
   )
 }
 
 export default App
-
-/*
-  Store
-  Action
-  Reducer
-*/
