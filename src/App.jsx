@@ -1,9 +1,9 @@
 import React from 'react'
-import NavigationBar from './component/Header/NavigationBar'
-import NotFound from './component/pages/Error/NotFound'
+import NavigationBar from './Component/Header/NavigationBar'
+import NotFound from './Component/Pages/Error/NotFound'
 import Cart from './Component/Pages/Cart/Cart'
-import Home from './component/pages/Home/Home'
-import ProductDetails from './component/Pages/Product/ProductDetails'
+import Home from './Component/Pages/Home/Home'
+import ProductDetails from './Component/Pages/Product/ProductDetails'
 
 import {Routes, Route} from 'react-router-dom'
 
