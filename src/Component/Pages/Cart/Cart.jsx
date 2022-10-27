@@ -13,7 +13,7 @@ function Cart() {
         </div>
         <div className='cart-list'>
             {
-                cartList.map((item) => {
+                cartList.map((item) => (
                     <div className='cart-item'>
                         <div className='cart-item-image'>
                             <img src={item.image}/>
@@ -23,14 +23,14 @@ function Cart() {
                             <p className='cart-item-desc'>{item.description}</p>
                             <h3 className='cart-item-price'>
                                 ₹{item.price}
-                                {' '}
+                                {'   '}
                                 <span className='cart-item-old-price'>
                                     {item.price * 1.05}
                                 </span>
                             </h3>
                         </div>
                     </div>
-                })
+                ))
             }
         </div>
     </div>
