@@ -1,6 +1,6 @@
 import React from 'react'
-import Carousel from '../../../component/header/Carousel'
-import SmartProduct from '../../../component/products/SmartProduct'
+import Carousel from '../../header/Carousel'
+import SmartProduct from '../../products/SmartProduct'
 
 function Home() {
   return (
